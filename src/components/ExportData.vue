@@ -17,7 +17,9 @@
         <v-btn depressed color="error"> Clear All Data </v-btn>
       </v-col>
       <v-col cols="2">
-        <v-btn depressed color="primary"> Run function </v-btn>
+        <v-btn depressed color="primary" @click="getDetail">
+          Run function
+        </v-btn>
       </v-col>
     </v-row>
     <div class="mt-10">
@@ -172,13 +174,13 @@ export default {
     };
   },
   created() {
-    this.getDetail();
+    // this.getDetail();
   },
   methods: {
     getDetail() {
       axios
-        .get("https://api.coindesk.com/v1/bpi/currentprice.json")
-        .then((response) => (this.info = response));
+        .get("http://localhost:800/api/public")
+        .then((response) => console.log(response));
     },
     addRow() {
       this.inputItem.push({
@@ -195,6 +197,7 @@ export default {
     deleteItem() {
       this.inputItem = [];
     },
+    sendData() {},
   },
 };
 </script>
