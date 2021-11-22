@@ -179,7 +179,9 @@ export default {
   methods: {
     getDetail() {
       axios
-        .get("http://localhost:800/api/public")
+        .get("http://localhost:800/api/public", {
+          headers: { "Access-Control-Allow-Origin": "*" },
+        })
         .then((response) => console.log(response));
     },
     addRow() {
