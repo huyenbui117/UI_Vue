@@ -157,15 +157,15 @@ export default {
           align: "center",
           width: "5%",
         },
-        { text: "Opinion", value: "opinion", align: "center", width: "35%" },
-        { text: "Price", value: "price", align: "center", width: "10%" },
-        { text: "Service", value: "service", align: "center", width: "10%" },
-        { text: "Safety", value: "safety", align: "center", width: "10%" },
-        { text: "Quality", value: "quality", align: "center", width: "10%" },
-        { text: "Delivery", value: "delivery", align: "center", width: "10%" },
+        { text: "Opinion", value: "text", align: "center", width: "35%" },
+        { text: "Price", value: "aspect0", align: "center", width: "10%" },
+        { text: "Service", value: "aspect1", align: "center", width: "10%" },
+        { text: "Safety", value: "aspect2", align: "center", width: "10%" },
+        { text: "Quality", value: "aspect3", align: "center", width: "10%" },
+        { text: "Delivery", value: "aspect4", align: "center", width: "10%" },
         {
           text: "Authenticity",
-          value: "authenticity",
+          value: "aspect5",
           align: "center",
           width: "10%",
         },
@@ -179,10 +179,14 @@ export default {
   methods: {
     getDetail() {
       axios
-        .get("http://localhost:800/api/public", {
+        .get("http://localhost:800/demo", {
           headers: { "Access-Control-Allow-Origin": "*" },
         })
-        .then((response) => console.log(response));
+        .then((response) => {
+            this.resultItem=Object.values(response.data);
+          // console.log(Object.values(response.data))
+        });
+
     },
     addRow() {
       this.inputItem.push({
