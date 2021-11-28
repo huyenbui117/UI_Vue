@@ -179,12 +179,12 @@ export default {
   methods: {
     getDetail() {
       axios
-        .get("http://localhost:800/demo", {
+        .post("http://localhost:8000/demo", {
           headers: { "Access-Control-Allow-Origin": "*" },
         })
         .then((response) => {
             this.resultItem=Object.values(response.data);
-          // console.log(Object.values(response.data))
+
         });
 
     },
